@@ -1,7 +1,7 @@
 import type { Agent } from "node:http";
+import { wrapFetchWithAbortSignal } from "openclaw/plugin-sdk/fetch-runtime";
 import { ProxyAgent } from "proxy-agent";
 import { ProxyAgent as UndiciProxyAgent, fetch as undiciFetch } from "undici";
-import { wrapFetchWithAbortSignal } from "../infra/fetch.js";
 
 /** Create a proxy-aware fetch for Discord REST API calls (undici ProxyAgent). */
 export function makeDiscordProxyFetch(proxyUrl: string): typeof fetch {
